@@ -1,0 +1,84 @@
+Queries
+
+
+Table
+create table employee
+(
+Id int,
+First_Name varchar(50),
+Last_Name varchar (50),
+);
+
+
+create table  Customer2
+(
+CusId int,
+CusFirstName varchar(50),
+CusLastName varchar(50),
+CusCompany varchar(50),
+CusContact varchar(250),
+CustomerAddress varchar(250),
+CustomerRemark varchar(250),
+)
+
+
+insert into Customer (Cus_Id,Cus_FirstName,
+Cus_LastName,Cus_Company,Cus_Contact,
+Cus_Address,Cus_Remark)
+values ('2','Banka','Surya','Saibersys','+4693345675',
+'Carrollton','GoodCustomer')
+
+
+create table State
+(
+State_ID int primary key,
+Country_Id int,
+State_Name varchar(50),
+);
+
+
+drop table Employer
+Go
+
+CREATE TABLE [dbo].[Employer](
+	[EmployerKey] [nchar](15) NOT NULL,
+	[EmployerName] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Employer] PRIMARY KEY CLUSTERED 
+(
+	[EmployerKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, 
+IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) 
+ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+drop table ConsultantGroupAssignment
+go
+
+create table ConsultantGroupAssignment (
+ConsultantKey nchar(15) primary key,
+GroupKey nchar(15) NOT NULL
+)
+go
+
+
+
+Joins
+
+select * from Employeedetails
+
+select * from Department
+
+select * from Employeedetails
+inner join
+Department on Employeedetails.Dept_Id = Department.Dept_Id
+
+select Emp_Id,Emp_Name,Emp_Salary,Employeedetails.Dept_Id,Department.Dept_Name from Employeedetails
+left outer join
+Department on Employeedetails.Dept_Id = Department.Dept_Id
+
+select Emp_Id,Emp_Name,Emp_Salary,Employeedetails.Dept_Id,Department.Dept_Name from Employeedetails
+Right outer join
+Department on Employeedetails.Dept_Id = Department.Dept_Id
